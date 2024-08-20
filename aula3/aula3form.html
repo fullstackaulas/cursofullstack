@@ -114,9 +114,15 @@
 
             <label for="telefone">Telefone:</label>
             <input type="number" id="telefone" name="telefone" placeholder="Digite seu telefone">
+            <div class="erro" id="erroTelefone">Preencha o telefone corretamente</div>
+
+
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Digite seu email">
+            <div class="erro" id="erroEmail">Preencha o email corretamente</div>
+
+
 
             <input type="submit" value="Enviar">
         </form>
@@ -147,19 +153,19 @@
         }
 
         if(telefone == ''){
-            document.getElementById('erroNome').style.display = 'block';
+            document.getElementById('erroTelefone').style.display = 'block';
             return;
         }
         else{
-            document.getElementById('erroNome').style.display = 'none';
+            document.getElementById('erroTelefone').style.display = 'none';
         }
 
         if(email == ''){
-            document.getElementById('erroNome').style.display = 'block';
+            document.getElementById('erroEmail').style.display = 'block';
             return;
         }
         else{
-            document.getElementById('erroNome').style.display = 'none';
+            document.getElementById('erroEmail').style.display = 'none';
         }
 
         // Exibe os dados no console
