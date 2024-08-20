@@ -144,34 +144,43 @@
         const telefone = document.getElementById('telefone').value;
         const email = document.getElementById('email').value;
 
-        if(nome == ''){
+        $erroQtd = 0;
+
+
+        if (nome == '') {
             document.getElementById('erroNome').style.display = 'block';
-            return;
+            $erroQtd++;
         }
-        else{
+        else {
             document.getElementById('erroNome').style.display = 'none';
         }
 
-        if(telefone == ''){
+        if (telefone == '') {
             document.getElementById('erroTelefone').style.display = 'block';
-            return;
+            $erroQtd++;
         }
-        else{
+        else {
             document.getElementById('erroTelefone').style.display = 'none';
         }
 
-        if(email == ''){
+        if (email == '') {
             document.getElementById('erroEmail').style.display = 'block';
-            return;
+            $erroQtd++;
+
         }
-        else{
+        else {
             document.getElementById('erroEmail').style.display = 'none';
         }
 
-        // Exibe os dados no console
-        console.log('Nome:', nome);
-        console.log('Telefone:', telefone);
-        console.log('Email:', email);
+        if ($erroQtd == 0) {
+            // Exibe os dados no console
+            console.log('Nome:', nome);
+            console.log('Telefone:', telefone);
+            console.log('Email:', email);
+        }
+        else {
+            console.log("Tem erros nesta pagina, qtd: " + $erroQtd);
+        }
     });
     //acender luz do quarto
 
