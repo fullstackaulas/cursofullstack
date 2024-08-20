@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,18 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         header {
             background-color: #4CAF50;
             color: white;
             padding: 1em;
             text-align: center;
         }
+
         main {
             padding: 1em;
         }
+
         footer {
             background-color: #333;
             color: white;
@@ -34,11 +38,13 @@
             display: flex;
             flex-direction: column;
         }
+
         label {
             font-size: 1em;
             margin-bottom: 0.5em;
             color: #333;
         }
+
         input[type="text"],
         input[type="number"],
         input[type="email"] {
@@ -50,6 +56,7 @@
             width: 100%;
             box-sizing: border-box;
         }
+
         input[type="submit"] {
             background-color: #4CAF50;
             color: white;
@@ -60,11 +67,21 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+
+        .erro {
+            color: red;
+            padding-bottom: 50px;
+            font-size: 30px;
+            display: none;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Meu Site Exemplo</h1>
@@ -92,6 +109,8 @@
         <form id="contactForm">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+            <div class="erro" id="erroNome">Preencha o nome corretamente</div>
+
 
             <label for="telefone">Telefone:</label>
             <input type="number" id="telefone" name="telefone" placeholder="Digite seu telefone">
@@ -103,24 +122,62 @@
         </form>
 
     </main>
-    <footer>
+    <!-- <footer>
         <p>&copy; 2024 Meu Site Exemplo. Todos os direitos reservados.</p>
-    </footer>
+    </footer> -->
 </body>
+
 </html>
 
 <script>
-            document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio do formulário
 
-            // Captura os dados do formulário
-            const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
-            const email = document.getElementById('email').value;
+        // Captura os dados do formulário
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const email = document.getElementById('email').value;
 
-            // Exibe os dados no console
-            console.log('Nome:', nome);
-            console.log('Telefone:', telefone);
-            console.log('Email:', email);
-        });
+        if(nome == ''){
+            document.getElementById('erroNome').style.display = 'block';
+            return;
+        }
+        else{
+            document.getElementById('erroNome').style.display = 'none';
+        }
+
+        if(telefone == ''){
+            document.getElementById('erroNome').style.display = 'block';
+            return;
+        }
+        else{
+            document.getElementById('erroNome').style.display = 'none';
+        }
+
+        if(email == ''){
+            document.getElementById('erroNome').style.display = 'block';
+            return;
+        }
+        else{
+            document.getElementById('erroNome').style.display = 'none';
+        }
+
+        // Exibe os dados no console
+        console.log('Nome:', nome);
+        console.log('Telefone:', telefone);
+        console.log('Email:', email);
+    });
+    //acender luz do quarto
+
+    $luzdoquarto = true;
+
+    if ($luzdoquarto == false) {
+        $luzdoquarto = true;
+    }
+    else {
+        // nao faço nada
+    }
+
+    console.log($luzdoquarto);
+
 </script>
