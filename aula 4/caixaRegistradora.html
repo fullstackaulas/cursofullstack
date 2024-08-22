@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha primeira calculadora</title>
+    <title>Caixa registradora</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,17 +84,11 @@
 <body>
     <main>
         <form id="contactForm">
-            <label for="operacao">Operação:</label>
-            <input type="text" id="operacao" name="operacao" maxlength="1" placeholder="+ - / *" value="+">
+            <label for="nome">Nome do produto:</label>
+            <input type="text" id="nome" name="nome">
 
-
-            <label for="numero1">Numero 1:</label>
-            <input type="number" id="numeroUm" name="numeroUm">
-
-
-
-            <label for="numeroDois">Numero 2:</label>
-            <input type="number" id="numeroDois" name="numeroDois">
+            <label for="precoEmReais">Preço em reais:</label>
+            <input type="number" id="precoEmReais" name="precoEmReais">
 
             <div class="resultado" id="mensagemDeResultado"></div>
             <div class="erro" id="mensagemDeErro"></div>
@@ -112,44 +106,42 @@
 <script>
 
 calcular = function(){
+    // Se o produto custar menos de 100 reais, desconto de 20%
+    // Se custar mais de 100 até 500: 10%
+    // Acima de 500 5%
 
-    const operacao = document.getElementById('operacao').value;
-    const numeroUm = parseFloat(document.getElementById('numeroUm').value);
-    const numeroDois = parseFloat(document.getElementById('numeroDois').value);
 
-    let resultado = 0;
+    const nome = document.getElementById('nome').value;
+    const precoEmReais = parseFloat(document.getElementById('precoEmReais').value);
+
+    let resultado = '';
+    let desconto = 0;
+    let porcentagem = 1;
     let erro = '';
 
-    console.log(operacao, numeroUm, numeroDois);
-    console.log(typeof operacao, typeof numeroUm, typeof numeroDois);
+    if(precoEmReais < 100){
+        porcentagem = 0.2
+    }
+    else if(precoEmReais >= 100 && precoEmReais <= 500){
+        porcentagem = 0.1
+    }
+    else{
+        porcentagem = 0.05
+    }
 
-    if(operacao == "+"){
-        resultado = numeroUm + numeroDois;
-    } else if (operacao == "-"){
-        resultado = numeroUm - numeroDois;
-    }
-    else if (operacao == "*"){
-        resultado = numeroUm * numeroDois;
-    }
-    else if (operacao == "/"){
-        if(numeroDois == 0){
-         resultado = 0;
-         erro = 'Não pode dividir por 0';
-        }
-        else{
-            resultado = numeroUm / numeroDois;
-        }
-    }
-    else {
-        resultado = 0;
-        erro = 'O operador é inválido, digite uma das opçoes: + - / *';
-    }
+    desconto = porcentagem * precoEmReais;
+
+
+    let precoFinal = precoEmReais - desconto;
+
+    resultado = 'O produto ' + nome + ' custa R$' + precoEmReais + ' com desconto de ' + porcentagem * 100 + '% (R$' + desconto + ') ele sairá por: R$' + precoFinal;
+
+   
+    
 
     let mensagemDeResultado = document.getElementById('mensagemDeResultado').textContent = resultado;
     let mensagemDeErro = document.getElementById('mensagemDeErro').textContent = erro;
 
-    console.log(resultado);
-    console.log(mensagemDeErro);
 
 }
 
