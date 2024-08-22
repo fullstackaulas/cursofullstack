@@ -77,7 +77,6 @@
             color: red;
             padding-bottom: 50px;
             font-size: 30px;
-            display: none;
         }
     </style>
 </head>
@@ -97,6 +96,8 @@
             <label for="numeroDois">Numero 2:</label>
             <input type="number" id="numeroDois" name="numeroDois">
 
+            <div class="resultado" id="mensagemDeResultado"></div>
+            <div class="erro" id="mensagemDeErro"></div>
 
 
             <input type="button" onclick="calcular()" value="Calcular">
@@ -117,6 +118,7 @@ calcular = function(){
     const numeroDois = parseFloat(document.getElementById('numeroDois').value);
 
     let resultado = 0;
+    let erro = '';
 
     console.log(operacao, numeroUm, numeroDois);
     console.log(typeof operacao, typeof numeroUm, typeof numeroDois);
@@ -130,16 +132,24 @@ calcular = function(){
         resultado = numeroUm * numeroDois;
     }
     else if (operacao == "/"){
-        resultado = numeroUm / numeroDois;
+        if(numeroDois == 0){
+         resultado = 0;
+         erro = 'Não pode dividir por 0';
+        }
+        else{
+            resultado = numeroUm / numeroDois;
+        }
     }
     else {
         resultado = 0;
+        erro = 'O operador é inválido, digite uma das opçoes: + - / *';
     }
 
+    let mensagemDeResultado = document.getElementById('mensagemDeResultado').textContent = resultado;
+    let mensagemDeErro = document.getElementById('mensagemDeErro').textContent = erro;
+
     console.log(resultado);
-
-
-
+    console.log(mensagemDeErro);
 
 }
 
