@@ -1,0 +1,50 @@
+<script>
+    var exibeMensagem = function () {
+        if (true) {
+            var escopoFuncao = 'Banana';
+            let escopoBloco = 'Maça';
+            console.log(escopoBloco); // Banana
+        }
+        console.log(escopoFuncao); // Maça
+        //     console.log(escopoBloco); @ ela da erro pq o let esta dentro do {}
+    }
+
+
+    exibeMensagemComParametros = function (nome, idade) {
+        console.log(nome, idade);
+    }
+
+    //   exibeMensagem();
+    // exibeMensagemComParametros('joao', 13);
+    // exibeMensagemComParametros('joao');
+
+    // exibeMensagemComParametros();
+
+
+
+
+    alterarConstante = function () {
+        const mensagem = 'Olá';
+        console.log(mensagem); // Olá
+        mensagem = 'Oi';
+    };
+
+    //alterarConstante();
+
+
+
+    let variavelDeTexto = 'texto qualquer';
+    let variavelNumerica = 123;
+    let variavelNumericaFlutuante = 123.12;
+    let variavelIndefinida;
+    let variavelBooleana = true;
+    console.log(variavelDeTexto, typeof variavelDeTexto); //saída: string
+    console.log(variavelNumerica, typeof variavelNumerica); //saída: number
+    console.log(variavelNumericaFlutuante, typeof variavelNumericaFlutuante); //saída: number
+    console.log(variavelIndefinida, typeof variavelIndefinida); //saída: undefined
+    console.log(variavelBooleana,typeof variavelBooleana); //saída: boolean
+
+
+
+
+</script>
