@@ -49,10 +49,65 @@
 
     }
 
-//    lacoDeRepeticao();
+
+    lacoDeRepeticaoDoWhile = function () {
+        let condicional = true;
+        let contador = 0;
+        console.log("Iniciando do while");
+        do {
+            if (contador == 5) {
+                condicional = false
+            }
+            contador = contador + 1
+            console.log("Contador: ", contador)
+        } while (condicional == true);
+
+        console.log("Terminando do while");
+    }
 
 
-lacoDeRepeticaoComInicioEFim(10, 50);
+
+    lacoDeRepeticaoComFor = function () {
+
+
+        for (i = 0; i <= 10; i++) {
+            console.log(i);
+        }
+
+    }
+
+// meu preferido!!!!!!
+    lacoDeRepeticaoComDadosFor = function () {
+        //         0       1       2
+        list = ['aaaa', 'bbbb', 'ccccc'];
+
+
+        for (i = 0; i < list.length; i++) {
+            console.log(list[i]);
+        }
+
+    }
+
+    lacoDeRepeticaoComForEach = function(){
+        list = [0,1,2,3,4,5];
+        // list = ['aaaa', 'bbbb', 'ccccc'];
+
+        list.forEach(element => {
+            console.log(element);
+        });
+
+    }
+
+    lacoDeRepeticaoComForEach();
+
+
+
+    //    lacoDeRepeticaoDoWhile();
+
+    //    lacoDeRepeticao();
+
+
+    //lacoDeRepeticaoComInicioEFim(10, 50);
 
 
 
