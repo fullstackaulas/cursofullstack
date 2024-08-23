@@ -1,0 +1,60 @@
+<script>
+
+    lacoDeRepeticao = function () {
+        let congelamento = false;
+        let contador = 0;
+        console.log('Antes do while');
+        while (congelamento == false) {
+
+            if (contador == 10) {
+                congelamento = true;
+            }
+
+            console.log(contador);
+            contador++;
+            // contador = contador+1; alternativa da linha acima
+
+
+        }
+
+        console.log('Depois do while');
+
+
+    }
+
+
+    lacoDeRepeticaoComInicioEFim = function (contador, fim) {
+        let congelamento = false;
+
+        if (fim > 1000) {
+            fim = 1000;
+        }
+
+        console.log('Antes do while');
+        while (congelamento == false) {
+
+            if (contador == fim) {
+                congelamento = true;
+            }
+
+            console.log(contador);
+            contador++;
+            // contador = contador+1; alternativa da linha acima
+
+
+        }
+
+        console.log('Depois do while');
+
+
+    }
+
+//    lacoDeRepeticao();
+
+
+lacoDeRepeticaoComInicioEFim(10, 50);
+
+
+
+
+</script>
