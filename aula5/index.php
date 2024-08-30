@@ -1,37 +1,37 @@
 <?php
-ini_set('error_reporting', E_ALL); // mesmo resultado de: error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// ini_set('error_reporting', E_ALL); // mesmo resultado de: error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
-if (isset($_GET['nome'])) {
-
-
-    $nome = $_GET['nome'];
-    $precoEmReais = $_GET['precoEmReais'];
-
-    $resultado = '';
-    $desconto = 0;
-    $porcentagem = 1;
+// if (isset($_GET['nome'])) {
 
 
-    if ($precoEmReais < 100) {
-        $porcentagem = 0.2;
-    } else if ($precoEmReais >= 100 && $precoEmReais <= 500) {
-        $porcentagem = 0.1;
-    } else {
-        $porcentagem = 0.05;
-    }
+//     $nome = $_GET['nome'];
+//     $precoEmReais = $_GET['precoEmReais'];
 
-    $desconto = $porcentagem * $precoEmReais;
+//     $resultado = '';
+//     $desconto = 0;
+//     $porcentagem = 1;
 
 
-    $precoFinal = $precoEmReais - $desconto;
+//     if ($precoEmReais < 100) {
+//         $porcentagem = 0.2;
+//     } else if ($precoEmReais >= 100 && $precoEmReais <= 500) {
+//         $porcentagem = 0.1;
+//     } else {
+//         $porcentagem = 0.05;
+//     }
 
-    $resultado = 'O produto ' . $nome . ' custa R$' . $precoEmReais . ' com desconto de ' . $porcentagem * 100 . '% (R$' . $desconto . ') ele saira por: R$' . $precoFinal;
+//     $desconto = $porcentagem * $precoEmReais;
+
+
+//     $precoFinal = $precoEmReais - $desconto;
+
+//     $resultado = 'O produto ' . $nome . ' custa R$' . $precoEmReais . ' com desconto de ' . $porcentagem * 100 . '% (R$' . $desconto . ') ele saira por: R$' . $precoFinal;
 
 
 
-    echo $resultado;
-}
+//     echo $resultado;
+// }
 
 ?>
 
@@ -121,7 +121,7 @@ if (isset($_GET['nome'])) {
 
 <body>
     <main>
-        <form method="GET" action="index.php">
+        <form method="GET" action="inserirBancoDeDados.php">
             <label for="nome">Nome do produto:</label>
             <input type="text" id="nome" name="nome">
 
