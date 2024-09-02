@@ -95,7 +95,8 @@
             box-sizing: border-box;
         }
 
-        input[type="button"] {
+        input[type="button"],
+        input[type="submit"] {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -106,7 +107,8 @@
             transition: background-color 0.3s;
         }
 
-        input[type="button"]:hover {
+        input[type="button"]:hover,
+        input[type="submit"]:hover {
             background-color: #45a049;
         }
 

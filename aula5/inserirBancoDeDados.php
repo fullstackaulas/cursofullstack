@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 
 //Array ( [nome] => kiwi [precoEmReais] => 10 )
 
+
 $nome = $_GET['nome'];
 $precoEmReais = $_GET['precoEmReais'];
 
