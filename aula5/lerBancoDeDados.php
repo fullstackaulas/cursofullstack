@@ -29,6 +29,7 @@ $resultado = $conn->query($sql);
 if ($resultado->num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
 ?>
+<a href="lerAntesDeAtualizar.php?id=<?php echo $row['id'];?>">Editar</a>
 <a href="deletarBancoDeDados.php?id=<?php echo $row['id'];?>">Apagar</a>
 <?php
         echo $row['id'] . " - " . $row["nome"] . " - " . $row["preco"] . ' - ' . $row['dataDeCriacao'] . "<br>";

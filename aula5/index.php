@@ -132,7 +132,7 @@
             <div class="erro" id="mensagemDeErro"></div>
 
 
-            <input type="submit" value="Calcular">
+            <input type="submit" value="Registrar">
         </form>
 
     </main>
