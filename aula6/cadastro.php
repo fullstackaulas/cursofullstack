@@ -76,11 +76,11 @@
 
 <div class="register-container">
     <h2>Cadastre-se</h2>
-    <form action="#" method="POST">
+    <form action="usuarios/inserir.php" method="GET">
         <input type="text" name="nome" placeholder="Nome" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="senha" placeholder="Senha" required>
-        <input type="text" name="palavraDeSeguranca" placeholder="Palavra de Segurança" required>
+        <!-- <input type="text" name="palavraDeSeguranca" placeholder="Palavra de Segurança" required> -->
         <button type="submit">Cadastrar</button>
         <a href="#" class="link">Já tem uma conta? Logar</a>
     </form>

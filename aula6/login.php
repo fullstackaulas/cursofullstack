@@ -91,9 +91,9 @@
 
 <div class="login-container">
     <h2>Login</h2>
-    <form action="#" method="POST">
-        <input type="text" name="username" placeholder="Usuário" required>
-        <input type="password" name="password" placeholder="Senha" required>
+    <form action="usuarios/logar.php" method="GET">
+        <input type="text" name="email" placeholder="Usuário" required>
+        <input type="password" name="senha" placeholder="Senha" required>
         <button type="submit">Logar</button>
         <a href="#" class="link">Esqueci minha senha</a>
         <a href="#" class="register-btn">Cadastre-se</a>
