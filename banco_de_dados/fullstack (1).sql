@@ -3,9 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 03-Set-2024 às 01:17
+-- Tempo de geração: 06-Set-2024 às 00:35
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.0.28
+DROP TABLE fullstack;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -157,6 +158,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(125) NOT NULL,
   `senha` varchar(1024) NOT NULL,
   `status` enum('ativo','inativo') NOT NULL DEFAULT 'ativo',
+  `palavraDeSeguranca` varchar(125) DEFAULT NULL,
   `ultimoLogin` datetime DEFAULT NULL,
   `criado_em` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
