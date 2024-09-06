@@ -6,7 +6,8 @@
 -- Tempo de geração: 06-Set-2024 às 00:35
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.0.28
-DROP TABLE fullstack;
+DROP database if exists fullstack;
+create database fullstack;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;

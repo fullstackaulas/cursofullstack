@@ -82,7 +82,7 @@
         <input type="password" name="senha" placeholder="Senha" required>
         <input type="text" name="palavraDeSeguranca" placeholder="Palavra de Segurança" required>
         <button type="submit">Cadastrar</button>
-        <a href="#" class="link">Já tem uma conta? Logar</a>
+        <a href="login.php" class="link">Já tem uma conta? Logar</a>
     </form>
 </div>
 

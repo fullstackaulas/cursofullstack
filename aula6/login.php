@@ -95,8 +95,8 @@
         <input type="text" name="email" placeholder="Usuário" required>
         <input type="password" name="senha" placeholder="Senha" required>
         <button type="submit">Logar</button>
-        <a href="#" class="link">Esqueci minha senha</a>
-        <a href="#" class="register-btn">Cadastre-se</a>
+        <a href="esqueciminhasenha.php" class="link">Esqueci minha senha</a>
+        <a href="cadastro.php" class="register-btn">Cadastre-se</a>
     </form>
 </div>
 
