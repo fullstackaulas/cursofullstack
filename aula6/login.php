@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+if(isset($_SESSION['userId']) && $_SESSION['userId'] != ''){
+    header('Location:dashboard.php');
+}
+$msg = '';
+if(isset($_GET['msg'])){
+$msg = $_GET['msg'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -90,6 +103,7 @@
 <body>
 
 <div class="login-container">
+    <h2><?php echo $msg;?></h2>
     <h2>Login</h2>
     <form action="usuarios/logar.php" method="GET">
         <input type="text" name="email" placeholder="Usuário" required>
