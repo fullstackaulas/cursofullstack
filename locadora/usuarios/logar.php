@@ -13,16 +13,14 @@ $resultado = $conn->query($sql);
 if ($resultado->num_rows > 0) {
     $row = $resultado->fetch_assoc();
 
-    echo "bem vindo " . $row["nome"];
     $id = $row["id"];
     // $sql = "UPDATE usuarios SET ultimoLogin = CURRENT_TIMESTAMP WHERE id = " . $row['id'];
     $sql = "UPDATE usuarios SET ultimoLogin = CURRENT_TIMESTAMP WHERE id = $id ";
     $_SESSION["userId"] = $id;
     $_SESSION["userName"] = $row["nome"];
-
-    echo 'Sessão iniciada e dados armazenados.';
-
     $resultado = $conn->query($sql);
+
+    header('Location:../dashboard.php');
 } else {
     echo "Usuário não encontrado :( ";
 }

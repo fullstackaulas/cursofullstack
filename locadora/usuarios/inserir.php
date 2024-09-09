@@ -14,7 +14,7 @@ $resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
 //  echo 'Email já cadastrado';
-header('Location:../esqueciminhasenha.php?msg=Podemos%20ajudar?');
+header('Location:../esqueciminhasenha.php?msg=Podemos%20ajudar? Usuario ja existe');
 
 } else {
 
@@ -25,7 +25,7 @@ header('Location:../esqueciminhasenha.php?msg=Podemos%20ajudar?');
 
 
     if($conn->query($sql) === TRUE){
-        echo $nome . " Usuario inserido com sucesso";
+        header('Location:../logar.php?msg=Seu usuario foi cadastrado :) Faça login abaixo!');
     }
     else{
         echo $nome . " Usuario nao foi inserido com sucesso :( ";
