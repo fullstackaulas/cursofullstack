@@ -1,5 +1,5 @@
 <?php
-require "conexao.php";
+require "../conexao.php";
 
 $nome = $_GET['nome'];
 $email = $_GET['email'];
