@@ -1,18 +1,10 @@
-<?php
-$msg = '';
-if(isset($_GET['msg'])){
-$msg = $_GET['msg'];
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueci Minha Senha</title>
+    <title>Cadastro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,7 +16,7 @@ $msg = $_GET['msg'];
             margin: 0;
         }
 
-        .forgot-password-container {
+        .register-container {
             background: white;
             padding: 30px;
             border-radius: 10px;
@@ -34,13 +26,14 @@ $msg = $_GET['msg'];
             text-align: center;
         }
 
-        .forgot-password-container h2 {
+        .register-container h2 {
             margin-bottom: 20px;
             color: #333;
         }
 
-        .forgot-password-container input[type="email"],
-        .forgot-password-container input[type="text"] {
+        .register-container input[type="text"],
+        .register-container input[type="email"],
+        .register-container input[type="password"] {
             width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
@@ -49,11 +42,11 @@ $msg = $_GET['msg'];
             font-size: 16px;
         }
 
-        .forgot-password-container button {
+        .register-container button {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            background-color: #7b4fb2;
+            background-color: #7b4fb2; /* Cor do botão */
             border: none;
             border-radius: 5px;
             color: white;
@@ -62,11 +55,11 @@ $msg = $_GET['msg'];
             transition: background-color 0.3s;
         }
 
-        .forgot-password-container button:hover {
+        .register-container button:hover {
             background-color: #6b429e;
         }
 
-        .forgot-password-container .link {
+        .register-container .link {
             display: block;
             margin: 10px 0;
             color: #6e8efb;
@@ -74,25 +67,24 @@ $msg = $_GET['msg'];
             font-size: 14px;
         }
 
-        .forgot-password-container .link:hover {
+        .register-container .link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-<div class="forgot-password-container">
-    <h2><?php echo $msg;?></h2>
-    <h2>Esqueci Minha Senha</h2>
-    <form action="usuarios/atualizarSenha.php" method="Get">
+<div class="register-container">
+    <h2>Cadastre-se</h2>
+    <form action="acoes/inserir.php" method="GET">
+        <input type="text" name="nome" placeholder="Nome" required>
         <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Senha" required>
         <input type="text" name="palavraDeSeguranca" placeholder="Palavra de Segurança" required>
-        <input type="text" name="novaSenha" placeholder="Nova senha" required>
-        <button type="submit">Recuperar Senha</button>
-        <a href="login.php" class="link">Voltar ao Login</a>
+        <button type="submit">Cadastrar</button>
+        <a href="login.php" class="link">Já tem uma conta? Logar</a>
     </form>
 </div>
 
 </body>
 </html>
-

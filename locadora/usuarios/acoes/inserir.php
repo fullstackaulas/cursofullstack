@@ -1,5 +1,5 @@
 <?php
-require "../conexao.php";
+require "../../conexao.php";
 
 $nome = $_GET['nome'];
 $email = $_GET['email'];
@@ -25,7 +25,7 @@ header('Location:../esqueciminhasenha.php?msg=Podemos%20ajudar? Usuario ja exist
 
 
     if($conn->query($sql) === TRUE){
-        header('Location:../logar.php?msg=Seu usuario foi cadastrado :) Faça login abaixo!');
+        header('Location:../../logar.php?msg=Seu usuario foi cadastrado :) Faça login abaixo!');
     }
     else{
         echo $nome . " Usuario nao foi inserido com sucesso :( ";

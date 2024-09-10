@@ -1,10 +1,23 @@
+<?php
+
+session_start();
+if(isset($_SESSION['userId']) && $_SESSION['userId'] != ''){
+    header('Location:../dashboard.php');
+}
+$msg = '';
+if(isset($_GET['msg'])){
+$msg = $_GET['msg'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,7 +29,7 @@
             margin: 0;
         }
 
-        .register-container {
+        .login-container {
             background: white;
             padding: 30px;
             border-radius: 10px;
@@ -26,14 +39,13 @@
             text-align: center;
         }
 
-        .register-container h2 {
+        .login-container h2 {
             margin-bottom: 20px;
             color: #333;
         }
 
-        .register-container input[type="text"],
-        .register-container input[type="email"],
-        .register-container input[type="password"] {
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
             width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
@@ -42,11 +54,11 @@
             font-size: 16px;
         }
 
-        .register-container button {
+        .login-container button {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            background-color: #7b4fb2; /* Cor do botão */
+            background-color: #6e8efb;
             border: none;
             border-radius: 5px;
             color: white;
@@ -55,11 +67,11 @@
             transition: background-color 0.3s;
         }
 
-        .register-container button:hover {
-            background-color: #6b429e;
+        .login-container button:hover {
+            background-color: #5a7bdb;
         }
 
-        .register-container .link {
+        .login-container .link {
             display: block;
             margin: 10px 0;
             color: #6e8efb;
@@ -67,22 +79,38 @@
             font-size: 14px;
         }
 
-        .register-container .link:hover {
+        .login-container .link:hover {
             text-decoration: underline;
+        }
+
+        .login-container .register-btn {
+            background-color: #7b4fb2; /* Cor ajustada para maior contraste */
+            color: white; /* Cor do texto ajustada para melhor legibilidade */
+            padding: 10px;
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .login-container .register-btn:hover {
+            background-color: #6b429e; /* Efeito de hover para o botão */
         }
     </style>
 </head>
 <body>
 
-<div class="register-container">
-    <h2>Cadastre-se</h2>
-    <form action="usuarios/inserir.php" method="GET">
-        <input type="text" name="nome" placeholder="Nome" required>
-        <input type="email" name="email" placeholder="Email" required>
+<div class="login-container">
+    <h2><?php echo $msg;?></h2>
+    <h2>Login</h2>
+    <form action="acoes/logar.php" method="GET">
+        <input type="text" name="email" placeholder="Usuário" required>
         <input type="password" name="senha" placeholder="Senha" required>
-        <input type="text" name="palavraDeSeguranca" placeholder="Palavra de Segurança" required>
-        <button type="submit">Cadastrar</button>
-        <a href="login.php" class="link">Já tem uma conta? Logar</a>
+        <button type="submit">Logar</button>
+        <a href="esqueciminhasenha.php" class="link">Esqueci minha senha</a>
+        <a href="cadastro.php" class="register-btn">Cadastre-se</a>
     </form>
 </div>
 

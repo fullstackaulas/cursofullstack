@@ -2,7 +2,7 @@
 
 session_start();
 if(!isset($_SESSION['userId']) || $_SESSION['userId'] == ''){
-    header('Location:login.php?msg=Você não está autenticado');
+    header('Location:usuarios/login.php?msg=Você não está autenticado');
 
 }
 ?>
@@ -115,7 +115,7 @@ if(!isset($_SESSION['userId']) || $_SESSION['userId'] == ''){
         <ul>
             <li><a href="filmes/criar.php">Adicionar Filme</a></li>
             <li><a href="filmes/listar.php">Listar Filmes</a></li>
-            <li><a href="logout.php">Sair</a></li>
+            <li><a href="usuarios/logout.php">Sair</a></li>
 
             <!-- <li><a href="#">Adicionar Cliente</a></li>
             <li><a href="#">Listar Clientes</a></li>
