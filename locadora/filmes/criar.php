@@ -1,3 +1,12 @@
+<?php
+
+$msg = '';
+if(isset($_GET['msg'])){
+$msg = $_GET['msg'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -125,44 +134,46 @@
     </div>
 
     <div class="main-content">
+        <h1><?php echo $msg; ?></h1>
         <h1>Adicionar Novo Filme</h1>
         
-        <form action="#" method="post">
+        <form action="acoes/inserir.php" method="GET">
             <div class="form-group">
                 <label for="title">Título:</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="titulo" required>
             </div>
 
             <div class="form-group">
                 <label for="genre">Gênero:</label>
-                <select id="genre" name="genre" required>
+                <select id="genre" name="genero" required>
                     <option value="">Selecione...</option>
                     <option value="acao">Ação</option>
                     <option value="comedia">Comédia</option>
                     <option value="drama">Drama</option>
                     <option value="fantasia">Fantasia</option>
                     <option value="suspense">Suspense</option>
+                    <option value="terror">Terror</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="release_date">Data de Lançamento:</label>
-                <input type="date" id="release_date" name="release_date" required>
+                <input type="date" id="release_date" name="dataDeLancamento" required>
             </div>
 
             <div class="form-group">
                 <label for="director">Diretor:</label>
-                <input type="text" id="director" name="director" required>
+                <input type="text" id="director" name="diretor" required>
             </div>
 
             <div class="form-group">
                 <label for="rating">Classificação:</label>
-                <input type="text" id="rating" name="rating" required>
+                <input type="text" id="rating" name="classificacao" required>
             </div>
 
             <div class="form-group">
                 <label for="description">Descrição:</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
+                <textarea id="description" name="descricao" rows="4" required></textarea>
             </div>
 
             <div class="form-group">
