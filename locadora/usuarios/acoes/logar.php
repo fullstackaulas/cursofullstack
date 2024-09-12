@@ -8,6 +8,7 @@ $senha = $_GET['senha'];
 $sql = "SELECT * FROM `usuarios` where `status` = 'ativo' and email = '$email' and senha = '$senha' ";
 
 
+
 $resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
