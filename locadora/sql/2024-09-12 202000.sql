@@ -1,0 +1,1 @@
+ALTER TABLE `filmes` ADD `diretor` VARCHAR(125) NULL AFTER `classificacao`;

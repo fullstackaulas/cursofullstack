@@ -1,4 +1,7 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+
 
 $msg = '';
 if(isset($_GET['msg'])){
@@ -119,19 +122,7 @@ $msg = $_GET['msg'];
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2>Locadora</h2>
-        <ul>
-            <li><a href="#">Adicionar Filme</a></li>
-            <li><a href="#">Listar Filmes</a></li>
-            <li><a href="#">Atualizar Filme</a></li>
-            <li><a href="#">Remover Filme</a></li>
-            <li><a href="#">Adicionar Cliente</a></li>
-            <li><a href="#">Listar Clientes</a></li>
-            <li><a href="#">Atualizar Cliente</a></li>
-            <li><a href="#">Remover Cliente</a></li>
-        </ul>
-    </div>
+<?php require "../menu.php";?>
 
     <div class="main-content">
         <h1><?php echo $msg; ?></h1>
