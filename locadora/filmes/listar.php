@@ -1,3 +1,16 @@
+<?php
+require "../conexao.php";
+
+$sql = "SELECT * FROM `filmes`";
+
+$resultado = $conn->query($sql);
+
+$conn->close();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -105,6 +118,7 @@
 </head>
 <body>
 
+
     <div class="sidebar">
         <h2>Locadora</h2>
         <ul>
@@ -134,28 +148,26 @@
                 </tr>
             </thead>
             <tbody>
+                <?php
+                while ($row = $resultado->fetch_assoc()) {
+                    
+                ?>
                 <tr>
-                    <td>Filme Exemplo 1</td>
-                    <td>Ação</td>
-                    <td>2024-05-15</td>
-                    <td>Diretor Exemplo</td>
-                    <td>PG-13</td>
+                    <td><?php echo $row["titulo"] ?></td>
+                    <td><?php echo $row["genero"] ?></td>
+                    <td><?php echo $row["dataDeLancamento"] ?></td>
+                    <td></td>
+                    <td><?php echo $row["classificacao"] ?></td>
                     <td>
-                        <a href="#">Editar</a> | 
-                        <a href="#" style="color: red;">Excluir</a>
+                        <a href="atualizar.php?id=<?php echo $row['id']; ?>">Editar</a> | 
+                        <a href="deletar.php?id=<?php echo $row['id']; ?>" style="color: red;">Excluir</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Filme Exemplo 2</td>
-                    <td>Comédia</td>
-                    <td>2024-06-10</td>
-                    <td>Diretor Exemplo 2</td>
-                    <td>R</td>
-                    <td>
-                        <a href="#">Editar</a> | 
-                        <a href="#" style="color: red;">Excluir</a>
-                    </td>
-                </tr>
+                <?php
+                }
+
+
+                ?>
                 <!-- Adicione mais linhas conforme necessário -->
             </tbody>
         </table>
