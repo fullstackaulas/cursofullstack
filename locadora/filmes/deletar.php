@@ -1,3 +1,23 @@
+<?php
+
+require "../conexao.php";
+
+if(!isset($_GET['id'])) {
+    header('Location:listar.php');
+}
+$id = $_GET['id'];
+
+
+$sql = "SELECT * FROM `filmes` where id = $id";
+
+$resultado = $conn->query($sql);
+
+$row = $resultado->fetch_assoc();
+
+$conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -132,21 +152,21 @@
     <?php require "../menu.php"; ?>
 
     <div class="main-content">
-        <h1>Excluir Filme</h1>
-
+        <h1>Excluir Filme #<?php echo $row['id']?></h1>
         <div class="item-details">
-            <p><strong>Título:</strong> Filme Exemplo</p>
-            <p><strong>Gênero:</strong> Ação</p>
-            <p><strong>Data de Lançamento:</strong> 2024-05-15</p>
-            <p><strong>Diretor:</strong> Diretor Exemplo</p>
-            <p><strong>Classificação:</strong> PG-13</p>
-            <p><strong>Descrição:</strong> Descrição do filme exemplo...</p>
+            <p><strong>Título:</strong> <?php echo $row['titulo']?></p>
+            <p><strong>Gênero:</strong> <?php echo $row['genero']?></p>
+            <p><strong>Data de Lançamento:</strong> <?php echo $row['dataDeLancamento']?></p>
+            <p><strong>Diretor:</strong> <?php echo $row['diretor']?></p>
+            <p><strong>Classificação:</strong> <?php echo $row['classificacao']?></p>
+            <p><strong>Descrição:</strong> <?php echo $row['descricao']?></p>
         </div>
 
         <div class="form-group">
-            <form action="#" method="post">
+            <form action="acoes/deletarAcao.php" method="GET">
+                <input type="hidden" value="<?php echo $row['id']?>" name="id">
                 <button type="submit" class="confirm">Excluir</button>
-                <a href="#" class="cancel">Cancelar</a>
+                <a href="listar.php" class="cancel">Cancelar</a>
             </form>
         </div>
     </div>

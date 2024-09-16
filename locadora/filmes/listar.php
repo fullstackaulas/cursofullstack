@@ -1,7 +1,7 @@
 <?php
 require "../conexao.php";
 
-$sql = "SELECT * FROM `filmes`";
+$sql = "SELECT * FROM `filmes` where deleted_by is null";
 
 $resultado = $conn->query($sql);
 
@@ -129,6 +129,7 @@ $conn->close();
         <table>
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Título</th>
                     <th>Gênero</th>
                     <th>Data de Lançamento</th>
@@ -158,14 +159,17 @@ $conn->close();
 
                     ?>
                     <tr>
+                        <td><?php echo $row["id"] ?></td>
                         <td><?php echo $row["titulo"] ?></td>
                         <td><?php echo $genero ?></td>
                         <td><?php echo $data?></td>
                         <td><?php echo $diretor?></td>
                         <td><?php echo $row["classificacao"] ?></td>
                         <td>
-                            <a href="atualizar.php?id=<?php echo $row['id']; ?>"></a>Editar</a>
-                            <a href="deletar.php?id=<?php echo $row['id']; ?>" style="color: red;"></a>Excluir</a>
+                            <a href="atualizar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                            <a href="deletar.php?id=<?php echo $row['id']; ?>" style="color: red;">Excluir</a>
+    <!--                             deletar.php?id=1 -->
+    <!-- http://localhost/cursofullstack/locadora/filmes/deletar.php?id=1 -->
                         </td>
                     </tr>
                     <?php
