@@ -9,10 +9,9 @@ $conn->close();
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,11 +92,14 @@ $conn->close();
             margin-top: 20px;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #ddd;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
             text-align: left;
         }
@@ -116,14 +118,14 @@ $conn->close();
         }
     </style>
 </head>
+
 <body>
 
-
-<?php require "menu.php";?>
+    <?php require "../menu.php"; ?>
 
     <div class="main-content">
         <h1>Listar Filmes</h1>
-        
+
         <table>
             <thead>
                 <tr>
@@ -137,29 +139,42 @@ $conn->close();
             </thead>
             <tbody>
                 <?php
+
                 while ($row = $resultado->fetch_assoc()) {
-                    
-                ?>
-                <tr>
-                    <td><?php echo $row["titulo"] ?></td>
-                    <td><?php echo $row["genero"] ?></td>
-                    <td><?php echo $row["dataDeLancamento"] ?></td>
-                    <td></td>
-                    <td><?php echo $row["classificacao"] ?></td>
-                    <td>
-                        <a href="atualizar.php?id=<?php echo $row['id']; ?>">Editar</a> | 
-                        <a href="deletar.php?id=<?php echo $row['id']; ?>" style="color: red;">Excluir</a>
-                    </td>
-                </tr>
-                <?php
+                    $data = new DateTime($row["dataDeLancamento"]);
+                    $data = $data->format("d/m/Y");
+
+                    $diretor = $row["diretor"];
+
+                    if ($diretor == '') {
+                        $diretor = 'Não informado';
+                    }
+
+                    $genero = $row["genero"];
+
+                    if ($genero == "acao") {
+                        $genero = "Ação";
+                    }
+
+                    ?>
+                    <tr>
+                        <td><?php echo $row["titulo"] ?></td>
+                        <td><?php echo $genero ?></td>
+                        <td><?php echo $data?></td>
+                        <td><?php echo $diretor?></td>
+                        <td><?php echo $row["classificacao"] ?></td>
+                        <td>
+                            <a href="atualizar.php?id=<?php echo $row['id']; ?>"></a>Editar</a>
+                            <a href="deletar.php?id=<?php echo $row['id']; ?>" style="color: red;"></a>Excluir</a>
+                        </td>
+                    </tr>
+                    <?php
                 }
-
-
                 ?>
-                <!-- Adicione mais linhas conforme necessário -->
             </tbody>
         </table>
     </div>
 
 </body>
+
 </html>

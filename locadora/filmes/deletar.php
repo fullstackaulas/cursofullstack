@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -107,7 +108,8 @@
         }
 
         .form-group .confirm {
-            background-color: #e74c3c; /* Vermelho para confirmar a exclusão */
+            background-color: #e74c3c;
+            /* Vermelho para confirmar a exclusão */
         }
 
         .form-group .confirm:hover {
@@ -115,7 +117,8 @@
         }
 
         .form-group .cancel {
-            background-color: #3498db; /* Azul para cancelar */
+            background-color: #3498db;
+            /* Azul para cancelar */
         }
 
         .form-group .cancel:hover {
@@ -123,13 +126,14 @@
         }
     </style>
 </head>
+
 <body>
 
-<?php require "menu.php";?>
+    <?php require "../menu.php"; ?>
 
     <div class="main-content">
         <h1>Excluir Filme</h1>
-        
+
         <div class="item-details">
             <p><strong>Título:</strong> Filme Exemplo</p>
             <p><strong>Gênero:</strong> Ação</p>
@@ -138,7 +142,7 @@
             <p><strong>Classificação:</strong> PG-13</p>
             <p><strong>Descrição:</strong> Descrição do filme exemplo...</p>
         </div>
-        
+
         <div class="form-group">
             <form action="#" method="post">
                 <button type="submit" class="confirm">Excluir</button>
@@ -148,4 +152,5 @@
     </div>
 
 </body>
+
 </html>

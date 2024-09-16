@@ -1,17 +1,15 @@
 <?php
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-
 
 $msg = '';
-if(isset($_GET['msg'])){
-$msg = $_GET['msg'];
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,14 +118,15 @@ $msg = $_GET['msg'];
         }
     </style>
 </head>
+
 <body>
 
-<?php require "../menu.php";?>
+    <?php require "../menu.php"; ?>
 
     <div class="main-content">
         <h1><?php echo $msg; ?></h1>
         <h1>Adicionar Novo Filme</h1>
-        
+
         <form action="acoes/inserir.php" method="GET">
             <div class="form-group">
                 <label for="title">Título:</label>
@@ -159,7 +158,7 @@ $msg = $_GET['msg'];
 
             <div class="form-group">
                 <label for="rating">Classificação:</label>
-                <input type="text" id="rating" name="classificacao" required>
+                <input type="number" id="rating" name="classificacao" required>
             </div>
 
             <div class="form-group">
@@ -174,4 +173,5 @@ $msg = $_GET['msg'];
     </div>
 
 </body>
+
 </html>

@@ -8,10 +8,11 @@ $titulo = $_GET['titulo'];
 $genero = $_GET['genero'];
 $dataDeLancamento = $_GET['dataDeLancamento'];
 $classificacao = $_GET['classificacao'];
+$diretor = $_GET['diretor'];
 $descricao = $_GET['descricao'];
 $createdBy = $_SESSION['userId'];
 
-$sql = "INSERT INTO filmes (titulo, genero, dataDeLancamento, classificacao, descricao, created_by ) VALUES('$titulo', '$genero', '$dataDeLancamento', $classificacao, '$descricao', $createdBy )";
+$sql = "INSERT INTO filmes (titulo, genero, dataDeLancamento, classificacao, diretor, descricao, created_by ) VALUES('$titulo', '$genero', '$dataDeLancamento', $classificacao, '$diretor', '$descricao', $createdBy )";
 
 
 if ($conn->query($sql) === TRUE) {
