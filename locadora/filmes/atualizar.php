@@ -1,3 +1,23 @@
+<?php
+
+require "../conexao.php";
+
+if(!isset($_GET['id'])) {
+    header('Location:listar.php');
+}
+$id = $_GET['id'];
+
+
+$sql = "SELECT * FROM `filmes` where id = $id";
+
+$resultado = $conn->query($sql);
+
+$row = $resultado->fetch_assoc();
+
+$conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -132,42 +152,43 @@
     <div class="main-content">
         <h1>Atualizar Filme</h1>
         
-        <form action="#" method="post">
+        <form action="acoes/atualizarAcao.php" method="GET">
+            <input type="hidden" value="<?php echo $row['id']?>" name="id">
             <div class="form-group">
                 <label for="title">Título:</label>
-                <input type="text" id="title" name="title" value="Filme Exemplo" required>
+                <input type="text" id="title" name="titulo" value="<?php echo $row['titulo']?>" required>
             </div>
 
             <div class="form-group">
                 <label for="genre">Gênero:</label>
-                <select id="genre" name="genre" required>
-                    <option value="">Selecione...</option>
-                    <option value="acao" selected>Ação</option>
-                    <option value="comedia">Comédia</option>
-                    <option value="drama">Drama</option>
-                    <option value="fantasia">Fantasia</option>
-                    <option value="suspense">Suspense</option>
+                <select id="genre" name="genero" required>
+                    <option value="acao" <?php if ($row["genero"] == "acao") echo 'selected'; ?>>Ação</option>
+                    <option value="comedia"<?php if ($row["genero"] == "comedia") echo 'selected'; ?> >Comédia</option>
+                    <option value="drama"<?php if ($row["genero"] == "drama") echo 'selected'; ?> >Drama</option>
+                    <option value="fantasia" <?php if ($row["genero"] == "fantasia") echo 'selected'; ?> >Fantasia</option>
+                    <option value="suspense"<?php if ($row["genero"] == "suspense") echo 'selected'; ?> >Suspense</option>
+                    <option value="terror"<?php if ($row["genero"] == "terror") echo 'selected'; ?> >terror</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="release_date">Data de Lançamento:</label>
-                <input type="date" id="release_date" name="release_date" value="2024-05-15" required>
+                <input type="date" id="release_date" name="dataDeLancamento" value="<?php echo $row['dataDeLancamento']?>" required>
             </div>
 
             <div class="form-group">
                 <label for="director">Diretor:</label>
-                <input type="text" id="director" name="director" value="Diretor Exemplo" required>
+                <input type="text" id="director" name="diretor" value="<?php echo $row['diretor']?>" required>
             </div>
 
             <div class="form-group">
                 <label for="rating">Classificação:</label>
-                <input type="text" id="rating" name="rating" value="PG-13" required>
+                <input type="text" id="rating" name="classificacao" value="<?php echo $row['classificacao']?>" required>
             </div>
 
             <div class="form-group">
                 <label for="description">Descrição:</label>
-                <textarea id="description" name="description" rows="4" required>Descrição do filme exemplo...</textarea>
+                <textarea id="description" name="descricao" rows="4" required><?php echo $row['descricao']?></textarea>
             </div>
 
             <div class="form-group">
